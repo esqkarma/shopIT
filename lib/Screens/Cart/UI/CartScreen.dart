@@ -43,7 +43,7 @@ class _CartscreenState extends State<Cartscreen> {
                 ListView.builder(
                     itemCount: loadedData.cartItems.length,
                     itemBuilder: (context, index) {
-                      return Product_Tile(
+                      return Cart_Product_Tile(
                           productDataModal: loadedData.cartItems[index],
                           cartBloc: cartBloc);
                     }),

@@ -9,7 +9,6 @@ import 'package:shopIT/Data/Wishlist_Data.dart';
 import '../../../ProductModal/HomeProductModal.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -26,11 +25,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     //Home => UserDetails
     on<HomeToUserDetailsNavigateEvent>(homeToUserDetailsNavigateEvent);
 
+    //Bottom Nav Home
+    on<BottomNavigationHomeButtonClicked>(bottomNavigationHomeButtonClicked);
+
+    //Bottom Nav Cart
+    on<BottomNavigationShopButtonClicked>(bottomNavigationShopButtonClicked);
+
     //Cart Button Event
     on<HomeCartButtonClicked>(homeCartButtonClicked);
 
     // WishList Button Event
     on<HomeWhishListButtonClicked>(homeWhishListButtonClicked);
+
+    //
   }
 
   FutureOr<void> homeInitialEvent(
@@ -77,5 +84,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> homeToUserDetailsNavigateEvent(
       HomeToUserDetailsNavigateEvent event, Emitter<HomeState> emit) {
     emit(HomeToUserDetailsNavigateActionState());
+  }
+
+  FutureOr<void> bottomNavigationHomeButtonClicked(
+      BottomNavigationHomeButtonClicked event, Emitter<HomeState> emit) {
+    emit(BottomNavigationHomeButtonClickedState(index: 0));
+  }
+
+  FutureOr<void> bottomNavigationShopButtonClicked(
+      BottomNavigationShopButtonClicked event, Emitter<HomeState> emit) {
+    emit(BottomNavigationShopButtonClickedState(index: 1));
   }
 }

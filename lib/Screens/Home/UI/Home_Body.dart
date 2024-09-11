@@ -1,104 +1,132 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopIT/Screens/Home/Bloc/home_bloc.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Text.dart';
 
 import '../../../ProductModal/HomeProductModal.dart';
 
-class Product_Tile extends StatelessWidget {
-  final ProductDataModal productDataModal;
+
+class HomeProduct extends StatelessWidget {
   final HomeBloc homeBloc;
-   Product_Tile({super.key, required this.productDataModal, required this.homeBloc});
+
+  const HomeProduct({super.key, required this.homeBloc});
 
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-      child: Column(
-        children: [
-          Cont(
+    final  loadedData = homeBloc.state as HomeLoadedState;
+    return  BlocProvider(
+  create: (context) => homeBloc,
+  child: GridView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      gridDelegate:
+      SliverGridDelegateWithFixedCrossAxisCount(
+        mainAxisSpacing: 3,
+        crossAxisSpacing: 3,
+        crossAxisCount: 2,
+        mainAxisExtent: height*0.33,
 
-              height: height * 0.55,
-              width: width,
-              color: Colors.purple[50],
-              blurRadius: 1.5,
-              spreadRadius:1,
-              borderRadius: 20,
-              borderWidth: 1,
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 30,top: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Texts(
-                                  color: Colors.black,
-                                  style: FontStyle.normal,
-                                  data: "Nike",
-                                  size: 25,
-                                  fontweight: FontWeight.w600),
-                              Row(
-                                children: [
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        final product = loadedData.productDataModal[index];
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+          child: Column(
+            children: [
+              Cont(
 
-                                  //Icon button for Wishlist or favorite
-                                  IconButton(onPressed: (){
-                                    homeBloc.add(HomeWhishListButtonClicked(
-                                        clickedProduct: productDataModal));
-                                  }, icon: Icon(Icons.favorite_border)),
-
-
-                                 //Icon button for add to cart
-                                  IconButton(onPressed: (){
-                                    homeBloc.add(HomeCartButtonClicked(
-                                        clickedProduct: productDataModal));
-                                  }, icon: Icon(Icons.shopping_bag_outlined))
-                                ],
-                              )
-                            ],
-                          ),
-                          Texts(
-                              color: Colors.black,
-                              style: FontStyle.normal,
-                              data: productDataModal.name,
-                              size: 16,
-                              fontweight: FontWeight.w100)
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                      flex: 6,
-                      child: Image.asset(productDataModal.imageUrl,filterQuality: FilterQuality.high,)),
-                  Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  height: height * 0.30,
+                  width: width,
+                  color: Colors.white70,
+                  blurRadius: 1.5,
+                  spreadRadius:1,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10,),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Texts(color: Colors.black38,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Texts(
+                                    color: Colors.black,
+                                    style: FontStyle.normal,
+                                    data: "Nike",
+                                    size: 17,
+                                    fontweight: FontWeight.w600),
+                                Row(
+                                  children: [
+
+                                    //Icon button for Wishlist or favorite
+                                    IconButton(onPressed: (){
+                                      homeBloc.add(HomeWhishListButtonClicked(
+                                          clickedProduct:product));
+                                    }, icon: Icon(Icons.favorite_border)),
+
+
+                                    //Icon button for add to cart
+                                    IconButton(onPressed: (){
+                                      homeBloc.add(HomeCartButtonClicked(
+                                          clickedProduct: product));
+                                    }, icon: Icon(Icons.shopping_bag_outlined))
+                                  ],
+                                )
+                              ],
+                            ),
+                            Texts(
+                                color: Colors.black,
                                 style: FontStyle.normal,
-                                data: "\$"+productDataModal.price.toString(),
-                                size: 16,
-                                fontweight: FontWeight.w600),
-                            ElevatedButton(onPressed: (){
-                            }, child: Text("Buy"))
+                                data: product.name,
+                                size: 13,
+                                fontweight: FontWeight.w100)
                           ],
                         ),
-                      )
-                  ),
-                ],
-              )),
-        ],
-      ),
-    );
+                      ),
+                      Expanded(
+                          flex: 3,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(product.imageUrl,filterQuality: FilterQuality.high,fit: BoxFit.cover,))),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Texts(color: Colors.black38,
+                                    style: FontStyle.normal,
+                                    data: "\$"+product.price.toString(),
+                                    size: 16,
+                                    fontweight: FontWeight.w600),
+                                ElevatedButton(onPressed: (){
+                                }, child: Text("Buy"))
+                              ],
+                            ),
+                          )
+                      ),
+                    ],
+                  )),
+            ],
+          ),
+        );
+      },
+      itemCount: loadedData.productDataModal.length,
+    ),
+);
   }
 }
+
+
+
+

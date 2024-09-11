@@ -17,28 +17,31 @@ class Homebanner extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Container(
-        height: height*0.30,
-        width:MediaQuery.of(context).size.width,
-        color: Colors.blue,
-        child: CarouselSlider(
-          options: CarouselOptions(
-            height: height * 0.30,
-            viewportFraction: 1,
-            autoPlay: true,
-          ),
-          items: banners.map((banner) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  width: width,
-                  child: Image.asset(banner, fit: BoxFit.fill),
-                );
-              },
-            );
-          }).toList(),
-        )
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+          height: height*0.30,
+          width:MediaQuery.of(context).size.width,
+          color: Colors.blue,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              height: height * 0.30,
+              viewportFraction: 1,
+              autoPlay: true,
+            ),
+            items: banners.map((banner) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    width: width,
+                    child: Image.asset(banner, fit: BoxFit.fill),
+                  );
+                },
+              );
+            }).toList(),
+          )
 
+      ),
     );
   }
 }

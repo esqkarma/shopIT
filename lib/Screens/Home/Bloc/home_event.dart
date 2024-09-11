@@ -24,3 +24,10 @@ class HomeToCartNavigateEvent extends HomeEvent{}
 
 
 class HomeToUserDetailsNavigateEvent extends HomeEvent{}
+
+
+
+
+class BottomNavigationHomeButtonClicked extends HomeEvent{}
+
+class BottomNavigationShopButtonClicked extends HomeEvent{}

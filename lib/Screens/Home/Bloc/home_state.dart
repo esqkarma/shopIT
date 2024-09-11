@@ -29,3 +29,15 @@ class HomeProductWishlistedActionState extends HomeActionState{}
 class HomeProductAddedToCartActionState extends HomeActionState{}
 
 class HomeToUserDetailsNavigateActionState extends HomeActionState{}
+
+class BottomNavigationHomeButtonClickedState extends HomeActionState{
+ final int index;
+ BottomNavigationHomeButtonClickedState({required this.index});
+}
+
+class BottomNavigationShopButtonClickedState extends HomeActionState{
+ final int index;
+
+  BottomNavigationShopButtonClickedState({required this.index});
+
+}

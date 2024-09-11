@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Text.dart';
-
 import '../../../ProductModal/HomeProductModal.dart';
 import '../Bloc/cart_bloc.dart';
 
-class Product_Tile extends StatelessWidget {
+class Cart_Product_Tile extends StatelessWidget {
   final ProductDataModal productDataModal;
   final CartBloc cartBloc;
-  Product_Tile({super.key, required this.productDataModal, required this.cartBloc});
+  Cart_Product_Tile({super.key, required this.productDataModal, required this.cartBloc});
 
   @override
   Widget build(BuildContext context) {

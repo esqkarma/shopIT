@@ -26,6 +26,7 @@ class BrandCategory extends StatelessWidget {
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
 
@@ -82,6 +83,12 @@ class BrandCategory extends StatelessWidget {
                       }),
                 ),
               ),
+            ),
+            Texts(
+              leftPadding: 10,topPadding: 10,
+              data: "New Arrivals",
+              size: 25,
+              fontweight: FontWeight.bold,
             ),
           ],
         ),
