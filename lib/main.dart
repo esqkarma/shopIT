@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopIT/Index/IndexPage.dart';
 import 'package:shopIT/Screens/Home/UI/Home.dart';
 
 import 'Screens/Home/Bloc/home_bloc.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (context) => HomeBloc(),
-        child: HomeScreen(),
+        child: Indexpage(),
       ),
     );
   }

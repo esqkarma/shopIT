@@ -54,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
             SnackBarHelper.showAddToCartSnackBar(context);
           }
         },
-        // listenWhen: (previous, current) => current is HomeActionState,
-        // buildWhen: (previous, current) => current is! HomeActionState,
+        listenWhen: (previous, current) => current is HomeActionState,
+        buildWhen: (previous, current) => current is! HomeActionState,
         builder: (context, state) {
           switch (state.runtimeType) {
             case HomeLoadingState:
