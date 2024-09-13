@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 
 class Homebanner extends StatelessWidget {
   Homebanner({super.key, });
@@ -15,17 +16,15 @@ class Homebanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
-          height: height*0.30,
-          width:MediaQuery.of(context).size.width,
+          height: Sizes.screenHeight*0.30,
+          width:Sizes.screenWidth,
           color: Colors.blue,
           child: CarouselSlider(
             options: CarouselOptions(
-              height: height * 0.30,
+              height: Sizes.screenHeight * 0.30,
               viewportFraction: 1,
               autoPlay: true,
             ),
@@ -33,7 +32,7 @@ class Homebanner extends StatelessWidget {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
-                    width: width,
+                    width: Sizes.screenWidth,
                     child: Image.asset(banner, fit: BoxFit.fill),
                   );
                 },

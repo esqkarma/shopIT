@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 
 import '../../../Utils/Custom_Widgets/Text.dart';
@@ -13,14 +14,6 @@ class Home_Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical:10),
       child: Column(
@@ -34,7 +27,7 @@ class Home_Category extends StatelessWidget {
           //       child: Texts(data:"popular categories",size: 20,fontweight: FontWeight.bold,),
           //     )),
           Container(
-            height: height*0.11,
+            height: Sizes.screenHeight*0.11,
             child: ListView.builder(
               itemCount: categoryDetails.length,
               scrollDirection: Axis.horizontal,
@@ -56,15 +49,6 @@ class Homecategory_Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 7),
       child: Column(

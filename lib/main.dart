@@ -4,13 +4,28 @@ import 'package:shopIT/Index/IndexPage.dart';
 import 'package:shopIT/Screens/Home/UI/Home.dart';
 
 import 'Screens/Home/Bloc/home_bloc.dart';
+import 'Utils/Components/Size.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize screen sizes
+    Sizes.init(context);
+  }
+
 
   @override
   Widget build(BuildContext context) {

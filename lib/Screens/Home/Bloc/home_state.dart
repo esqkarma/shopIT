@@ -30,6 +30,13 @@ class HomeProductAddedToCartActionState extends HomeActionState{}
 
 class HomeToUserDetailsNavigateActionState extends HomeActionState{}
 
+
+class HomeBuyButtonClickedState extends HomeActionState{}
+
+
+
+
+
 class BottomNavigationHomeButtonClickedState extends HomeActionState{
  final int index;
  BottomNavigationHomeButtonClickedState({required this.index});

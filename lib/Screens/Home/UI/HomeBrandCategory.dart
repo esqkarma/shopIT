@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Text.dart';
 
@@ -16,8 +17,6 @@ class BrandCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Container(
@@ -46,7 +45,7 @@ class BrandCategory extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
-                height: height*0.20,
+                height: Sizes.screenHeight*0.20,
 
                 width: MediaQuery.of(context).size.width,
                 child: Padding(

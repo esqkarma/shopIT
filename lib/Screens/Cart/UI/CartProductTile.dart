@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Text.dart';
 import '../../../ProductModal/HomeProductModal.dart';
@@ -11,14 +12,12 @@ class Cart_Product_Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(left:3,right: 3,top: 10,bottom: 5),
       child: Cont(
 
-          height: height * 0.55,
-          width: width,
+          height: Sizes.screenHeight * 0.55,
+          width: Sizes.screenWidth,
           color: Colors.white,
           blurRadius: 1.5,
           spreadRadius:1,

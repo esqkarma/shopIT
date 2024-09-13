@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopIT/Screens/Home/Bloc/home_bloc.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Text.dart';
 
@@ -14,9 +15,6 @@ class HomeProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     final  loadedData = homeBloc.state as HomeLoadedState;
     return  BlocProvider(
   create: (context) => homeBloc,
@@ -29,7 +27,7 @@ class HomeProduct extends StatelessWidget {
         mainAxisSpacing: 3,
         crossAxisSpacing: 3,
         crossAxisCount: 2,
-        mainAxisExtent: height*0.33,
+        mainAxisExtent: Sizes.screenHeight*0.33,
 
       ),
       itemBuilder: (BuildContext context, int index) {
@@ -40,8 +38,8 @@ class HomeProduct extends StatelessWidget {
             children: [
               Cont(
 
-                  height: height * 0.30,
-                  width: width,
+                  height: Sizes.screenHeight * 0.30,
+                  width: Sizes.screenWidth,
                   color: Colors.white70,
                   blurRadius: 1.5,
                   spreadRadius:1,
@@ -110,6 +108,7 @@ class HomeProduct extends StatelessWidget {
                                     size: 16,
                                     fontweight: FontWeight.w600),
                                 ElevatedButton(onPressed: (){
+                                  BlocProvider.of<HomeBloc>(context).add(HomeBuyButtonClickedEvent());
                                 }, child: Text("Buy"))
                               ],
                             ),

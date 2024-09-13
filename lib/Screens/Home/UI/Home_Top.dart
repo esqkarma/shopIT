@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopIT/Utils/Components/Size.dart';
 import 'package:shopIT/Utils/Custom_Widgets/Container.dart';
 import '../Bloc/home_bloc.dart';
 
@@ -10,14 +11,6 @@ class Home_top extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
@@ -26,8 +19,8 @@ class Home_top extends StatelessWidget {
         children: [
 
           SizedBox(
-            height: height*0.05,
-            width: width*0.55,
+            height: Sizes.screenHeight*0.05,
+            width: Sizes.screenWidth*0.55,
               child: const SearchBar(
                 hintText: "search",
               )),
@@ -52,23 +45,6 @@ class Home_top extends StatelessWidget {
                  onPressed: (){}, child: Icon(Icons.menu)),
            ],
          )
-
-
-
-
-          // IconButton(
-          //   onPressed: () {
-          //     //  homeBloc.add(HomeToWhishListNavigateEvent());
-          //     BlocProvider.of<HomeBloc>(context).add(HomeToWhishListNavigateEvent());
-          //   },
-          //   icon: Icon(Icons.favorite_border),
-          // ),
-          // IconButton(
-          //   onPressed: () {
-          //     BlocProvider.of<HomeBloc>(context).add(HomeToCartNavigateEvent());
-          //   },
-          //   icon: Icon(Icons.shopping_bag_outlined),
-          // ),
         ],
       ),
     );
