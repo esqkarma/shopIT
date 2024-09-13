@@ -15,5 +15,5 @@ ShopIT is a Flutter-based e-commerce application designed to provide a seamless 
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/shopit.git
+   git clone https://github.com/esqkarma/shopit.git
 
