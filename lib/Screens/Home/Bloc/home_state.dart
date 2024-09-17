@@ -31,7 +31,13 @@ class HomeProductAddedToCartActionState extends HomeActionState{}
 class HomeToUserDetailsNavigateActionState extends HomeActionState{}
 
 
-class HomeBuyButtonClickedState extends HomeActionState{}
+class HomeBuyButtonClickedState extends HomeActionState{
+ final ProductDataModal clickedProduct;
+
+  HomeBuyButtonClickedState({required this.clickedProduct});
+
+}
+
 
 
 

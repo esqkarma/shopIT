@@ -98,7 +98,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> homeBuyButtonClickedEvent(
       HomeBuyButtonClickedEvent event, Emitter<HomeState> emit) {
-    emit(HomeBuyButtonClickedState());
+    emit(HomeBuyButtonClickedState(clickedProduct: event.clickedProduct));
 
   }
 }

@@ -25,11 +25,11 @@ class Cont extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
 
-      height: height!,
+      height: height,
       width: width,
       child: child,
       decoration: BoxDecoration(
-        color: color,
+        color: color??Colors.white,
         borderRadius: BorderRadius.circular(borderRadius??0),
         boxShadow: [
           BoxShadow(

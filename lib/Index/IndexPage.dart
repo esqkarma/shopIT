@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopIT/Screens/Cart/UI/CartScreen.dart';
 import 'package:shopIT/Screens/Home/Bloc/home_bloc.dart';
 import 'package:shopIT/Screens/Home/UI/Home.dart';
-
 import '../Screens/Product/ProductDetails.dart';
+import '../Screens/User/User.dart';
 import '../Screens/Wishlist/UI/Wish_List_Screen.dart';
-import '../User/User.dart';
 import '../Utils/Custom_Widgets/SnackBar.dart';
 
 class Indexpage extends StatefulWidget {
@@ -31,10 +30,12 @@ class _IndexpageState extends State<Indexpage> {
   int currentIndex = 0;
   final List<Widget> screens = [
     HomeScreen(),
+    Center(child: Text('Explore Screen')),
     Cartscreen(),
     // Add screens for Explore, Shop, and Account
-    Center(child: Text('Explore Screen')),
+
     Center(child: Text('Shop Screen')),
+
     Center(child: Text('Account Screen')),
   ];
 
@@ -72,7 +73,7 @@ class _IndexpageState extends State<Indexpage> {
 
           //Buy Button in Home Page
           else if(state is HomeBuyButtonClickedState){
-            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>Productdetails()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>Productdetails(homeBloc: homeBloc,)));
           }
 
 

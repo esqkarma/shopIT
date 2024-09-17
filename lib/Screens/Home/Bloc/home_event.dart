@@ -26,7 +26,12 @@ class HomeToCartNavigateEvent extends HomeEvent{}
 class HomeToUserDetailsNavigateEvent extends HomeEvent{}
 
 
-class HomeBuyButtonClickedEvent extends HomeEvent{}
+class HomeBuyButtonClickedEvent extends HomeEvent{
+  final ProductDataModal clickedProduct;
+
+  HomeBuyButtonClickedEvent({required this.clickedProduct});
+}
+
 
 class BottomNavigationHomeButtonClicked extends HomeEvent{}
 
